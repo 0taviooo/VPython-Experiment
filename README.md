@@ -1,3 +1,3 @@
 # Experimento VPython
 
-### Alunos: Inacio Meneses Teixeira Freitas, Otávio Pereira Magalhães Moura.
+###### Alunos: Inacio Meneses Teixeira Freitas, Otávio Pereira Magalhães Moura.
