@@ -1,6 +1,6 @@
-# Web VPython 3.2
+Web VPython 3.2
 
-from vpython import *
+# from vpython import *
 
 class new_colors:
     dark_red = vec(0.4, 0, 0)
@@ -313,7 +313,6 @@ class Molecule:
     
     def make_molecule(self):
         x, y, z = self.xyz
-        atom_radius = atom[self.molecule_atoms[0]]['radius']
                 
         for index, atom_type in enumerate(self.molecule_atoms):
             atom_radius = atom[atom_type]['radius']
@@ -327,14 +326,16 @@ class Molecule:
                 self.atoms.append(make_atom(atom_type, x + gap + self.bond_length[0] + atom_radius, y, z))
             elif index == 2:
                 gap = atom[self.molecule_atoms[0]]['radius']
+                # Problema começa aqui:
                 if self.angle:
                     
-                    bond_angle = self.angle / 2
-                    
-                    direction2 = vec(cos(radians(bond_angle)), sin(radians(bond_angle)), 0)
-                    
-                    self.bonds.append(make_bond(self.bond_length[1] + gap, self.molecule_bonds[1], x, y, z, direction=direction2))
-                    self.atoms.append(make_atom(self.molecule_atoms[2], x + self.bond_length[1] * direction2.x + atom_radius, y + self.bond_length[1] * direction2.y + atom_radius, z))
+                    bond_angle = self.angle if self.angle <= 90 else 180 - self.angle
+                                        
+                    self.bonds.append(make_bond(self.bond_length[1] + gap, self.molecule_bonds[1], x, y, z))
+                    for b in self.bonds[-1]:
+                        b.rotate(axis=vec(0, 0, 1), angle=radians(self.angle))
+                    self.atoms.append(make_atom(self.molecule_atoms[2], x - ((self.bond_length[1] * cos(bond_angle)) + gap + (atom_radius * cos(bond_angle))), y + ((self.bond_length[1] * sin(bond_angle)) + gap + atom_radius), z))
+                # Problema termina aqui.
                 else:
                     self.bonds.append(make_bond(self.bond_length[1], self.molecule_bonds[1], x - gap, y, z, direction=vec(-1, 0, 0)))
                     self.atoms.append(make_atom(atom_type, x - gap - self.bond_length[1] - atom_radius, y, z))
