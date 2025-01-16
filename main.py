@@ -1,11 +1,14 @@
-Web VPython 3.2
+# Web VPython 3.2
 
-dark_red = vec(0.4, 0, 0)
-dark_green = vec(0, 0.3, 0)
-dark_orange = vec(0.6, 0.3, 0)
-beige = vec(1, 0.9, 0.8)
-grey = vec(0.4, 0.4, 0.4)
-pink = vec(1, 0.6, 1)
+from vpython import *
+
+class new_colors:
+    dark_red = vec(0.4, 0, 0)
+    dark_green = vec(0, 0.3, 0)
+    dark_orange = vec(0.6, 0.3, 0)
+    beige = vec(1, 0.9, 0.8)
+    grey = vec(0.4, 0.4, 0.4)
+    pink = vec(1, 0.6, 1)
 
 atom = {
     'H': {'radius': 0.53, 'color': color.white},
@@ -19,7 +22,7 @@ atom = {
     'F': {'radius': 0.42, 'color': color.green},
     'Cl': {'radius': 0.79, 'color': color.green},
     
-    'Br': {'radius': 0.94, 'color': dark_red},
+    'Br': {'radius': 0.94, 'color': new_colors.dark_red},
     
     'I': {'radius': 1.15, 'color': color.purple},
     
@@ -34,7 +37,7 @@ atom = {
     
     'S': {'radius': 0.87, 'color': color.yellow},
     
-    'B': {'radius': 0.87, 'color': beige},
+    'B': {'radius': 0.87, 'color': new_colors.beige},
     
     'Li': {'radius': 1.67, 'color': color.magenta},
     'Na': {'radius': 1.90, 'color': color.magenta},
@@ -43,17 +46,17 @@ atom = {
     'Cs': {'radius': 2.98, 'color': color.magenta},
     
     
-    'Be': {'radius': 1.12, 'color': dark_green},
-    'Mg': {'radius': 1.45, 'color': dark_green},
-    'Ca': {'radius': 1.94, 'color': dark_green},
-    'Sr': {'radius': 2.19, 'color': dark_green},
-    'Ba': {'radius': 2.53, 'color': dark_green},
+    'Be': {'radius': 1.12, 'color': new_colors.dark_green},
+    'Mg': {'radius': 1.45, 'color': new_colors.dark_green},
+    'Ca': {'radius': 1.94, 'color': new_colors.dark_green},
+    'Sr': {'radius': 2.19, 'color': new_colors.dark_green},
+    'Ba': {'radius': 2.53, 'color': new_colors.dark_green},
     
-    'Ti': {'radius': 1.76, 'color': grey},
+    'Ti': {'radius': 1.76, 'color': new_colors.grey},
     
-    'Fe': {'radius': 1.56, 'color': dark_orange},
+    'Fe': {'radius': 1.56, 'color': new_colors.dark_orange},
     
-    'Si': {'radius': 1.11, 'color': pink},
+    'Si': {'radius': 1.11, 'color': new_colors.pink},
 }
 
 bond = {
