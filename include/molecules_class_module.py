@@ -36,7 +36,7 @@ class Molecule:
         self.bonds: list[list[cylinder]] = []
     
     # Função de criação dos átomos da molécula e suas ligações
-    def make_molecule(self):
+    def make_molecule(self) -> None:
         """
         Constructs the molecular structure by creating atoms and bonds based on predefined properties such as bond lengths and angles.
 

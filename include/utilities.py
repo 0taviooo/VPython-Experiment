@@ -4,7 +4,7 @@ from include.bond_module import bond
 from include.atom_module import atom
 
 # Definição da função para a criação dos átomos
-def make_atom(type, x, y, z):
+def make_atom(type: str, x: float, y: float, z: float) -> sphere:
     """
     Creates a 3D representation of an atom using a sphere.
 
@@ -20,11 +20,12 @@ def make_atom(type, x, y, z):
     Returns:
         sphere: A VPython sphere object representing the atom at the specified coordinates.
     """
+    
     a = sphere(pos=vec(x, y, z), color=atom[type]['color'], radius=atom[type]['radius'])
     return a
 
 # Definição da função para a criação de ligações atômicas
-def make_bond(bond_length, bond_type, x, y, z, direction=vec(1, 0, 0)):
+def make_bond(bond_length: float, bond_type: str, x: float, y: float, z: float, direction: vector=vec(1, 0, 0)) -> list[cylinder]:
     """
     Constructs a visual representation of a chemical bond between atoms.
 
@@ -48,7 +49,8 @@ def make_bond(bond_length, bond_type, x, y, z, direction=vec(1, 0, 0)):
 
     Each bond is represented as a cylinder with specified radius and color. The cylinders are positioned based on their type to accurately depict the molecular structure.
     """
-    bonds = []
+    
+    bonds: list[cylinder] = []
     if bond_type == 'simple':
         sigma1 = cylinder(pos=vec(x, y, z), axis=direction * bond_length, radius=bond['radius'], color=color.white)
         bonds.append(sigma1)
