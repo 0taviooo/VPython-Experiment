@@ -80,3 +80,26 @@ class Molecule:
                     self.bonds.append(make_bond(self.bond_length[1], self.molecule_bonds[1], x - gap, y, z, direction=vec(-1, 0, 0)))
                     self.atoms.append(make_atom(atom_type, x - gap - self.bond_length[1] - atom_radius, y, z))
 
+    # Função para transformar a molécula em um dicionário para a serialização em JSON
+    def to_dict(self):
+        return {
+            "type": self.type,
+            "xyz": self.xyz,
+            "molecule_atoms": self.molecule_atoms,
+            "molecule_bonds": self.molecule_bonds,
+            "angle": self.angle,
+            "bond_length": self.bond_length,
+            "atoms": [atom.__dict__ for atom in self.atoms],
+            "bonds": [
+                        [
+                            {
+                                "pos": {"x": bond.pos.x, "y": bond.pos.y, "z": bond.pos.z},
+                                "axis": {"x": bond.axis.x, "y": bond.axis.y, "z": bond.axis.z},
+                                "radius": bond.radius,
+                                "color": {"r": bond.color.x, "g": bond.color.y, "b": bond.color.z}
+                            }
+                            for bond in bond_list
+                        ]
+                        for bond_list in self.bonds
+                    ],        
+            }

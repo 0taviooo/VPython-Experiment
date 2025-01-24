@@ -30,7 +30,8 @@ def M(m):
     val = m.selected
     select_molecule(val)
 
-menu(choices=molecules_list, index=0, bind=M)
+molecules_choices = [choice.type for choice in molecules_list]
+menu(choices=molecules_choices, index=0, bind=M)
 
 # Função principal de execução
 if __name__ == '__main__':
