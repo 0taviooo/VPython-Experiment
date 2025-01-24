@@ -45,7 +45,7 @@ def setzoom(s: slider) -> None:
     
 sl_z = slider(min=5, max=15, value=10, length=400, bind=setzoom, right=15)
 wt_z = wtext(text='{:1.2f}'.format(sl_z.value))
-scene.append_to_caption(' micrômetros de distância\n\n')
+scene.append_to_caption(' angstroms (Å) de distância\n\n')
 
 # Função principal de execução
 if __name__ == '__main__':
