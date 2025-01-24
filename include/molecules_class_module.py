@@ -5,7 +5,7 @@ from include.angle_module import angle
 from include.molecules_dict_module import molecules
 from include.utilities import make_atom, make_bond
 from math import cos, sin, radians
-from vpython import vec
+from vpython import vec, sphere, cylinder
 
 # Definição da classe de molécula
 class Molecule:
@@ -25,16 +25,17 @@ class Molecule:
     Methods:
         make_molecule(): Constructs the 3D representation of the molecule by placing atoms and bonds based on their specified properties and spatial relationships.
     """
-    def __init__(self, type, xyz):
+    def __init__(self, type: str, xyz: list[int]):
         self.type = type
         self.xyz = xyz
         self.molecule_atoms = molecules[type]['atoms']
         self.molecule_bonds = molecules[type]['bonds']
         self.angle = angle.get(type, 0)
         self.bond_length = bond[type]
-        self.atoms = []
-        self.bonds = []
+        self.atoms: list[sphere] = []
+        self.bonds: list[list[cylinder]] = []
     
+    # Função de criação dos átomos da molécula e suas ligações
     def make_molecule(self):
         """
         Constructs the molecular structure by creating atoms and bonds based on predefined properties such as bond lengths and angles.
@@ -50,10 +51,10 @@ class Molecule:
         This method ultimately populates `self.atoms` with atom objects and `self.bonds` with bond objects representing the physical structure of the molecule in 3D space.
         """
         x, y, z = self.xyz
-        gap = atom[self.molecule_atoms[0]]['radius']
+        gap: float = atom[self.molecule_atoms[0]]['radius']
                 
         for index, atom_type in enumerate(self.molecule_atoms):
-            atom_radius = atom[atom_type]['radius']
+            atom_radius: float = atom[atom_type]['radius']
                             
             if index == 0:
                 self.atoms.append(make_atom(atom_type, x, y, z))
