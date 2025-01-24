@@ -134,6 +134,7 @@ def select_molecule(type: str, ml: list[Molecule] = molecules_list) -> None:
     Returns:
         None: This function modifies the visual representation directly in the 3D scene.
     """
+    
     for molecule in ml: 
         if molecule.type == type:
             for atom in molecule.atoms:

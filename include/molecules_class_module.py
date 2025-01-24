@@ -25,6 +25,7 @@ class Molecule:
     Methods:
         make_molecule(): Constructs the 3D representation of the molecule by placing atoms and bonds based on their specified properties and spatial relationships.
     """
+    
     def __init__(self, type: str, xyz: list[int]):
         self.type = type
         self.xyz = xyz
@@ -50,6 +51,7 @@ class Molecule:
 
         This method ultimately populates `self.atoms` with atom objects and `self.bonds` with bond objects representing the physical structure of the molecule in 3D space.
         """
+        
         x, y, z = self.xyz
         gap: float = atom[self.molecule_atoms[0]]['radius']
                 

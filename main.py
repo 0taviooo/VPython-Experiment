@@ -16,12 +16,12 @@ scene.userpan = False
 select_molecule('H2')
 
 # Definição o slider para o usuário variar a velocidade de rotação da molécula
-scene.caption = "Varie a velocidade de rotação: \n\n"
+scene.caption = "\nVarie a velocidade de rotação: \n\n"
 
 def setspeed(s: slider) -> None:
     wt.text = '{:1.2f}'.format(s.value)
     
-sl = slider(min=0.3, max=3, value=1.5, length=220, bind=setspeed, right=15)
+sl = slider(min=0, max=4, value=1.5, length=400, bind=setspeed, right=15)
 wt = wtext(text='{:1.2f}'.format(sl.value))
 scene.append_to_caption(' radianos p/s\n\n')
 
