@@ -36,9 +36,9 @@ menu(choices=molecules_choices, index=0, bind=M)
 # Função principal de execução
 if __name__ == '__main__':
     # Definição a quantidade de quadros por segundo da tela
-    dt = 60
+    dt: int = 60
     # Definição o ângulo a ser alterado para a câmera girar
-    angle = 0
+    angle: float = 0
     while True:
         rate(dt)
         scene.camera.pos = vec(10 * cos(radians(angle)), 0, 10 * sin(radians(angle)))
