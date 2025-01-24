@@ -1,8 +1,9 @@
 from vpython import color
 from include.new_colors_module import new_colors
+from typing import Any
 
 # Definição de um dicionário com os átomos e seus respectivos raios e cores
-atom = {
+atom: dict[str, Any] = {
     'H': {'radius': 0.53, 'color': color.white},
     
     'C': {'radius': 0.67, 'color': color.black},
