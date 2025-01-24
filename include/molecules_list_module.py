@@ -84,7 +84,7 @@ hssi = Molecule('HSSi', [0, 0, 0])
 hssi.make_molecule()
 
 # Definição uma lista com todas as moléculas declaradas
-molecules_list = [
+molecules_list: list[Molecule] = [
     h2,
     n2,
     o2,
@@ -115,7 +115,7 @@ molecules_list = [
 ]
 
 # Função para selecionar a molécula a ser visível
-def select_molecule(type, ml = molecules_list):
+def select_molecule(type: str, ml: list[Molecule] = molecules_list) -> None:
     """
     Selects and highlights a molecule in the 3D simulation.
 
