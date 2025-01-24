@@ -1,6 +1,6 @@
 
 # Definição de um dicionário com os ângulos das segundas ligações das moléculas
-angle = {
+angle: dict[str, float] = {
     'H2O': 104.48,
     'NO2': 134.3,
     'O3': 116.8,
