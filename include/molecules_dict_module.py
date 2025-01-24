@@ -1,6 +1,6 @@
 
 # Definição de um dicionário com as moléculas e seus respectivos átomos e ligações
-molecules = {
+molecules: dict[str, dict[str, list[str]]] = {
     'H2': {
         'atoms': ['H', 'H'],
         'bonds': ['simple'],
