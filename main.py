@@ -19,11 +19,21 @@ select_molecule('H2')
 scene.caption = "\nVarie a velocidade de rotação: \n\n"
 
 def setspeed(s: slider) -> None:
-    wt.text = '{:1.2f}'.format(s.value)
+    wt_spd.text = '{:1.2f}'.format(s.value)
     
-sl = slider(min=0, max=4, value=1.5, length=400, bind=setspeed, right=15)
-wt = wtext(text='{:1.2f}'.format(sl.value))
+sl_spd = slider(min=0, max=4, value=1.5, length=400, bind=setspeed, right=15)
+wt_spd = wtext(text='{:1.2f}'.format(sl_spd.value))
 scene.append_to_caption(' radianos p/s\n\n')
+
+# Definição o slider para o usuário variar a distância de visualização da molécula
+scene.append_to_caption("\nVarie a distância de visualização: \n\n")
+
+def setzoom(s: slider) -> None:
+    wt_z.text = '{:1.2f}'.format(s.value)
+    
+sl_z = slider(min=5, max=15, value=10, length=400, bind=setzoom, right=15)
+wt_z = wtext(text='{:1.2f}'.format(sl_z.value))
+scene.append_to_caption(' micrômetros de distância\n\n')
 
 # Definição a função do menu de escolhas para o usuário selecionar a molécula que desejar
 def M(m:menu) -> None:
@@ -41,6 +51,6 @@ if __name__ == '__main__':
     angle: float = 0
     while True:
         rate(dt)
-        scene.camera.pos = vec(10 * cos(radians(angle)), 0, 10 * sin(radians(angle)))
+        scene.camera.pos = vec(sl_z.value * cos(radians(angle)), 0, sl_z.value * sin(radians(angle)))
         scene.camera.axis = -scene.camera.pos
-        angle += sl.value
+        angle += sl_spd.value
