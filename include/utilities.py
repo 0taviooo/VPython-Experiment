@@ -25,7 +25,7 @@ def make_atom(type: str, x: float, y: float, z: float) -> sphere:
     return a
 
 # Definição da função para a criação de ligações atômicas
-def make_bond(bond_length: float, bond_type: str, x: float, y: float, z: float, direction: vector=vec(1, 0, 0)) -> list[cylinder]:
+def make_bond(bond_length: float, bond_type: str, x: float, y: float, z: float, direction: vector=vec(1, 0, 0), extend_variation: bool = False) -> list[cylinder]:
     """
     Constructs a visual representation of a chemical bond between atoms.
 
@@ -38,6 +38,7 @@ def make_bond(bond_length: float, bond_type: str, x: float, y: float, z: float, 
         y (float): The y-coordinate for positioning the bond.
         z (float): The z-coordinate for positioning the bond.
         direction (vector): A VPython vector indicating the direction of the bond. Defaults to the positive x-axis.
+        extend_variation (boolean): The information if the variation between bonds will increase.
 
     Returns:
         list: A list of VPython cylinder objects representing the bonds created.
@@ -55,8 +56,9 @@ def make_bond(bond_length: float, bond_type: str, x: float, y: float, z: float, 
         sigma1 = cylinder(pos=vec(x, y, z), axis=direction * bond_length, radius=bond['radius'], color=color.white)
         bonds.append(sigma1)
     elif bond_type == 'double':
-        sigma1 = cylinder(pos=vec(x, y+bond['variation'], z), axis=direction * bond_length, radius=bond['radius'], color=color.white)
-        pi1 = cylinder(pos=vec(x, y-bond['variation'], z), axis=direction * bond_length, radius=bond['radius'], color=color.white)
+        variation = bond['variation'] if extend_variation == False else bond['variation']*2
+        sigma1 = cylinder(pos=vec(x, y+variation, z), axis=direction * bond_length, radius=bond['radius'], color=color.white)
+        pi1 = cylinder(pos=vec(x, y-variation, z), axis=direction * bond_length, radius=bond['radius'], color=color.white)
         bonds.append(sigma1)
         bonds.append(pi1)
     elif bond_type == 'triple':

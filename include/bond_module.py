@@ -4,7 +4,7 @@ from typing import Any
 # Definição de um dicionário com os comprimentos das ligações atômicas das moléculas e demais informações sobre elas
 bond: dict[str, Any] = {
     'radius': 0.05,
-    'variation': 0.15,
+    'variation': 0.125,
     
     'H2': [0.74],
     'Li2': [2.67],
