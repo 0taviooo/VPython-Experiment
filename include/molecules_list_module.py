@@ -9,7 +9,6 @@ for m in molecules.keys():
     molecules_list.append(Molecule(m, [0, 0, 0]))
     molecules_list[-1].make_molecule()
 
-
 # Função para selecionar a molécula a ser visível
 def select_molecule(type: str, ml: list[Molecule] = molecules_list) -> None:
     """

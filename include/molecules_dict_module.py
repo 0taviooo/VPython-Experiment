@@ -143,7 +143,7 @@ molecules: dict[str, dict[str, list[str]]] = {
         'bonds': ['simple', 'double'],
     },
     'HSC': {
-        'atoms': ['H', 'O', 'C'],
+        'atoms': ['H', 'S', 'C'],
         'bonds': ['simple', 'double'],
     },
     'HOSi': {
