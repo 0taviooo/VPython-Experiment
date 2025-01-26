@@ -4,50 +4,170 @@ from typing import Any
 
 # Definição de um dicionário com os átomos e seus respectivos raios e cores
 atom: dict[str, Any] = {
-    'H': {'radius': 0.53, 'color': color.white},
+    'H': {
+		'name': 'Hidrogênio',
+		'radius': 0.53,
+		'color': color.white,
+	},
     
-    'C': {'radius': 0.67, 'color': color.black},
+    'C': {
+		'name': 'Carbono',
+		'radius': 0.67,
+		'color': color.black,
+	},
     
-    'N': {'radius': 0.56, 'color': color.blue},
+    'N': {
+		'name': 'Nitrogênio',
+		'radius': 0.56,
+		'color': color.blue,
+	},
     
-    'O': {'radius': 0.48, 'color': color.red},
+    'O': {
+		'name': 'Oxigênio',
+		'radius': 0.48,
+		'color': color.red,
+	},
     
-    'F': {'radius': 0.42, 'color': color.green},
-    'Cl': {'radius': 0.79, 'color': color.green},
+    'F': {
+		'name': 'Flúor',
+		'radius': 0.42,
+		'color': color.green,
+	},
+    'Cl': {
+		'name': 'Cloro',
+		'radius': 0.79,
+		'color': color.green,
+	},
     
-    'Br': {'radius': 0.94, 'color': new_colors.dark_red},
+    'Br': {
+		'name': 'Brômio',
+		'radius': 0.94,
+		'color': new_colors.dark_red,
+	},
     
-    'I': {'radius': 1.15, 'color': color.purple},
+    'I': {
+		'name': 'Iodo',
+		'radius': 1.15,
+		'color': color.purple,
+	},
     
-    'He': {'radius': 0.31, 'color': color.cyan},
-    'Ne': {'radius': 0.38, 'color': color.cyan},
-    'Ar': {'radius': 0.71, 'color': color.cyan},
-    'Kr': {'radius': 0.87, 'color': color.cyan},
-    'Xe': {'radius': 1.08, 'color': color.cyan},
-    'Rn': {'radius': 1.20, 'color': color.cyan},
+    'He': {
+		'name': 'Hélio',
+		'radius': 0.31,
+		'color': color.cyan,
+	},
+    'Ne': {
+		'name': 'Neônio',
+		'radius': 0.38,
+		'color': color.cyan,
+	},
+    'Ar': {
+		'name': 'Argônio',
+		'radius': 0.71,
+		'color': color.cyan,
+	},
+    'Kr': {
+		'name': 'Criptônio',
+		'radius': 0.87,
+		'color': color.cyan,
+	},
+    'Xe': {
+		'name': 'Xenônio',
+		'radius': 1.08,
+		'color': color.cyan,
+	},
+    'Rn': {
+		'name': 'Radônio',
+		'radius': 1.20,
+		'color': color.cyan,
+	},
     
-    'P': {'radius': 0.98, 'color': color.orange},
+    'P': {
+		'name': 'Fósforo',
+		'radius': 0.98,
+		'color': color.orange,
+	},
     
-    'S': {'radius': 0.87, 'color': color.yellow},
+    'S': {
+		'name': 'Enxofre',
+		'radius': 0.87,
+		'color': color.yellow,
+	},
     
-    'B': {'radius': 0.87, 'color': new_colors.beige},
+    'B': {
+		'name': 'Boro',
+		'radius': 0.87,
+		'color': new_colors.beige,
+	},
     
-    'Li': {'radius': 1.67, 'color': color.magenta},
-    'Na': {'radius': 1.90, 'color': color.magenta},
-    'K': {'radius': 2.43, 'color': color.magenta},
-    'Rb': {'radius': 2.95, 'color': color.magenta},
-    'Cs': {'radius': 2.98, 'color': color.magenta},
+    'Li': {
+		'name': 'Lítio',
+		'radius': 1.67,
+		'color': color.magenta,
+	},
+    'Na': {
+		'name': 'Sódio',
+		'radius': 1.90,
+		'color': color.magenta,
+	},
+    'K': {
+		'name': 'Potássio',
+		'radius': 2.43,
+		'color': color.magenta,
+	},
+    'Rb': {
+		'name': 'Rubídio',
+		'radius': 2.95,
+		'color': color.magenta,
+	},
+    'Cs': {
+		'name': 'Césio',
+		'radius': 2.98,
+		'color': color.magenta,
+	},
     
     
-    'Be': {'radius': 1.12, 'color': new_colors.dark_green},
-    'Mg': {'radius': 1.45, 'color': new_colors.dark_green},
-    'Ca': {'radius': 1.94, 'color': new_colors.dark_green},
-    'Sr': {'radius': 2.19, 'color': new_colors.dark_green},
-    'Ba': {'radius': 2.53, 'color': new_colors.dark_green},
+    'Be': {
+		'name': 'Berílio',
+		'radius': 1.12,
+		'color': new_colors.dark_green,
+	},
+    'Mg': {
+		'name': 'Magnésio',
+		'radius': 1.45,
+		'color': new_colors.dark_green,
+	},
+    'Ca': {
+		'name': 'Cálcio',
+		'radius': 1.94,
+		'color': new_colors.dark_green,
+	},
+    'Sr': {
+		'name': 'Estrôncio',
+		'radius': 2.19,
+		'color': new_colors.dark_green,
+	},
+    'Ba': {
+		'name': 'Bário',
+		'radius': 2.53,
+		'color': new_colors.dark_green,
+	},
     
-    'Ti': {'radius': 1.76, 'color': new_colors.grey},
+    'Ti': {
+		'name': 'Titânio',
+		'radius': 1.76,
+		'color': new_colors.grey,
+	},
     
-    'Fe': {'radius': 1.56, 'color': new_colors.dark_orange},
+    'Fe': {
+		'name': 'Ferro',
+		'radius': 1.56,
+		'color': new_colors.dark_orange,
+	},
     
-    'Si': {'radius': 1.11, 'color': new_colors.pink},
+    'Si': {
+		'name': 'Silício',
+		'radius': 1.11,
+		'color': new_colors.pink,
+	},
 }

@@ -1,5 +1,7 @@
 
 from include.molecules_list_module import molecules_list, select_molecule
+from include.molecules_dict_module import molecules
+from include.atom_module import atom
 from vpython import *
 
 # Configuração inicial da cena
@@ -32,10 +34,21 @@ scene.append_to_caption('Selecione a molécula a ser exibida:    ')
 def M(m:menu) -> None:
     val: str = m.selected
     select_molecule(val)
+    info()
 
 molecules_choices = [choice.type for choice in molecules_list]
-menu(choices=molecules_choices, index=0, bind=M)
-scene.append_to_caption('\n\n')
+menu_choices = menu(choices=molecules_choices, index=0, bind=M)
+scene.append_to_caption('\n')
+
+# Informações acerca da molécula
+def info() -> None:
+    string  = ''
+    for a in molecules[menu_choices.selected]['atoms']:
+        string += '                                       ' * 4 + '         '
+        string += '{}: {}\n'.format(a, atom[a]['name'])
+    wt_info.text = string
+    
+wt_info = wtext()
 
 # Definição o slider para o usuário variar a distância de visualização da molécula
 scene.append_to_caption("\nVarie a distância de visualização: \n\n")
@@ -47,6 +60,7 @@ sl_z = slider(min=5, max=15, value=10, length=400, bind=setzoom, right=15)
 wt_z = wtext(text='{:1.2f}'.format(sl_z.value))
 scene.append_to_caption(' angstroms (Å) de distância\n\n')
 
+info()
 # Função principal de execução
 if __name__ == '__main__':
     # Definição a quantidade de quadros por segundo da tela
