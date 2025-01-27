@@ -69,13 +69,13 @@ class Molecule:
                     
                     bond_angle = self.angle if self.angle <= 90 else 180 - self.angle
                                         
-                    self.bonds.append(make_bond(self.bond_length[1] + min(atom_radius, gap)*2, self.molecule_bonds[1], x, y, z, extend_variation=True))
+                    self.bonds.append(make_bond(self.bond_length[1] + (atom_radius + gap), self.molecule_bonds[1], x, y, z, extend_variation=True))
                     for b in self.bonds[-1]:
                         b.rotate(axis=vec(0, 0, 1), angle=radians(self.angle))
                     self.atoms.append(make_atom(
                                                 self.molecule_atoms[2],
                                                 x - (((self.bond_length[1] + gap + atom_radius) * cos(radians(bond_angle)))),
-                                                y + (((self.bond_length[1] + atom_radius) * sin(radians(bond_angle))) + min(atom_radius, gap) - bond['variation']),
+                                                y + (((self.bond_length[1] + atom_radius) * sin(radians(bond_angle))) + max(atom_radius, gap) - bond['variation']),
                                                 z
                                         )
                                     )

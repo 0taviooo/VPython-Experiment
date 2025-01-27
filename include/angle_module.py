@@ -14,4 +14,5 @@ angle: dict[str, float] = {
     'HSC': 103.8,
     'HOSi': 120.2,
     'HSSi': 101.9,
+    'FeH2': 110.5,
 }

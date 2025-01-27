@@ -170,4 +170,9 @@ atom: dict[str, Any] = {
 		'radius': 1.11,
 		'color': new_colors.pink,
 	},
+    'Au': {
+		'name': 'Ouro',
+		'radius': 1.74,
+		'color': new_colors.pink,
+	},
 }

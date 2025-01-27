@@ -74,6 +74,10 @@ molecules: dict[str, dict[str, list[str]]] = {
         'bonds': ['simple'],
     },
     
+    'FeH': {
+        'atoms': ['Fe', 'H'],
+        'bonds': ['simple'],
+    },
     'HCl': {
         'atoms': ['H', 'Cl'],
         'bonds': ['simple'],
@@ -94,6 +98,15 @@ molecules: dict[str, dict[str, list[str]]] = {
         'atoms': ['Si', 'S'],
         'bonds': ['triple'],
     },
+    'CsNa': {
+        'atoms': ['Cs', 'Na'],
+        'bonds': ['simple'],
+    },
+    'CsAu': {
+        'atoms': ['Cs', 'Au'],
+        'bonds': ['simple'],
+    },
+    
     'CO2': {
         'atoms': ['C', 'O', 'O'],
         'bonds': ['double', 'double'],
@@ -153,5 +166,9 @@ molecules: dict[str, dict[str, list[str]]] = {
     'HSSi': {
         'atoms': ['H', 'S', 'Si'],
         'bonds': ['simple', 'double'],
+    },
+    'FeH2': {
+        'atoms': ['Fe', 'H', 'H'],
+        'bonds': ['simple', 'simple'],
     },
 }
